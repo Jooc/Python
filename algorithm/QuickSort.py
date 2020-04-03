@@ -1,27 +1,33 @@
-def partition(arr, low, high):
-    i = low
-    pivot = arr[high]
-
-    print('low = %d, high = %d' % (low, high))
-    for j in range(low, high):
-        print('j = %d' % j, ',', arr[j], pivot)
-        if arr[j] < pivot:
-            arr[i], arr[j] = arr[j], arr[i]
-            i += 1
-    arr[i], arr[high] = arr[high], arr[i]
-    return i
-
-
-def quickSort(arr, low, high):
-    if low < high:
-        pi = partition(arr, low, high)
-
-        quickSort(arr, low, pi - 1)
-        quickSort(arr, pi + 1, high)
-
-
-# array = [3, 1, 2, 5, 4, 1, 4, 5, 7, 9, 11, 10]a
-array = [3, 2, 1, 4]
-quickSort(array, 0, len(array) - 1)
-
-print('ans = ', array)
+# from random import randint
+#
+# class Solution:
+#     def randomized_partition(self, nums, left, right):
+#         pivot = left
+#         nums[pivot], nums[right] = nums[right], nums[pivot]
+#         i = left - 1
+#
+#         for j in range(left, right):
+#             if nums[j] < nums[right]:
+#                 i += 1
+#                 nums[j], nums[i] = nums[i], nums[j]
+#
+#         i += 1
+#         nums[i], nums[right] = nums[right], nums[i]
+#         print(nums[i], i, nums)
+#
+#         return i
+#
+#     def randomized_quicksort(self, nums, left, right):
+#         if right - left <= 0:
+#             return
+#         mid = self.randomized_partition(nums, left, right)
+#         self.randomized_quicksort(nums, left, mid - 1)
+#         self.randomized_quicksort(nums, mid + 1, right)
+#
+#     def sortArray(self, nums):
+#         self.randomized_quicksort(nums, 0, len(nums) - 1)
+#         return nums
+#
+#
+# demo = Solution()
+# print(demo.sortArray([5,3,4,2,1]))
